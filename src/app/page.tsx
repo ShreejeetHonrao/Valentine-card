@@ -57,10 +57,10 @@ export default function Home() {
 
   // Typewriter message lines
   const typewriterMessageLines = [
-  "Talking to you somehow makes my mood better, even on normal days 🍯🐼",
-  "You have this very calm and genuine vibe, and I really like that about you 🙂",
-  "Every time you laugh or get excited while talking, this monkey feels a little happier 💗"
-];
+    "Talking to you somehow makes my mood better, even on normal days 🍯🐼",
+    "You have this very calm and genuine vibe, and I really like that about you 🙂",
+    "Every time you laugh or get excited while talking, this monkey feels a little happier 💗"
+  ];
 
   // ✅ YOUR GALLERY PHOTOS - REPLACE THESE URLs
   const galleryPhotos = [
@@ -345,9 +345,9 @@ export default function Home() {
   };
 
   const renderPage1 = () => (
-    <div className="text-center space-y-8 max-w-md relative min-h-[500px] flex flex-col justify-start pt-2 pb-8">
+    <div className="text-center space-y-8 max-w-md relative flex flex-col h-full">
       {/* Header */}
-      <div className="animate-fade-in">
+      <div className="animate-fade-in pt-4">
         <h2 className="text-3xl font-bold text-white mb-3 drop-shadow-lg">
           👇 Tap the photos below 👇
         </h2>
@@ -395,51 +395,50 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Spacer for scrolling feel */}
-      <div className="h-8"></div>
+      {/* Final Message after both photos - Scrollable area */}
+      <div className="flex-1 overflow-y-auto min-h-0 pb-4">
+        {bothPhotosClicked && (
+          <div className="space-y-8 animate-slide-up">
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-md border border-white/10 shadow-2xl">
+              <div className="space-y-4 text-lg text-white leading-relaxed">
+                <p>
+                  You have a very gentle way of making people feel comfortable,
+                  and I'm really glad I got to know you 💗
+                </p>
+                <p>
+                  Thank you for being you, and for letting me be a part of your
+                  world 🐒💕
+                </p>
+              </div>
+            </div>
 
-      {/* Final Message after both photos */}
-      {bothPhotosClicked && (
-        <div className="space-y-8 animate-slide-up pb-4">
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-md border border-white/10 shadow-2xl">
-            <div className="space-y-4 text-lg text-white leading-relaxed">
-              <p>
-                You have a very gentle way of making people feel comfortable,
-                and I'm really glad I got to know you 💗
-              </p>
-              <p>
-                Thank you for being you, and for letting me be a part of your
-                world 🐒💕
+            <div className="pt-2">
+              <p className="text-2xl font-bold bg-gradient-to-r from-pink-300 to-rose-300 bg-clip-text text-transparent animate-pulse drop-shadow-lg">
+                With a small smile,
+                <br />
+                Your Shree 💕
               </p>
             </div>
-          </div>
 
-          <div className="pt-2">
-            <p className="text-2xl font-bold bg-gradient-to-r from-pink-300 to-rose-300 bg-clip-text text-transparent animate-pulse drop-shadow-lg">
-              With a small smile,
-              <br />
-              Your Shree 💕
-            </p>
+            {/* Continue button - Fixed at bottom */}
+            <div className="pt-6 pb-4 sticky bottom-0">
+              <button
+                className="w-full px-10 py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-full font-bold text-lg shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto group border-2 border-pink-400 drop-shadow-lg animate-bounce-slow"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentPage(2);
+                }}
+              >
+                Continue Reading
+                <ChevronRight
+                  className="group-hover:translate-x-2 transition-transform"
+                  size={24}
+                />
+              </button>
+            </div>
           </div>
-
-          {/* Continue button */}
-          <div className="pt-6 pb-4">
-            <button
-              className="w-full px-10 py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-full font-bold text-lg shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto group border-2 border-pink-400 drop-shadow-lg animate-bounce-slow"
-              onClick={(e) => {
-                e.stopPropagation();
-                setCurrentPage(2);
-              }}
-            >
-              Continue Reading
-              <ChevronRight
-                className="group-hover:translate-x-2 transition-transform"
-                size={24}
-              />
-            </button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Modals */}
       {activeModal === 1 && renderModal(1)}
@@ -448,35 +447,35 @@ export default function Home() {
   );
 
   const renderPage2 = () => (
-    <div className="h-full flex flex-col max-w-2xl mx-auto animate-fade-in relative">
+    <div className="h-full flex flex-col max-w-2xl mx-auto animate-fade-in">
       {/* Confession Screen (Overlay) */}
       {showConfession && (
         <div className="absolute inset-0 z-50 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-black/95 to-gray-900/95 backdrop-blur-md rounded-3xl animate-fade-in">
           <div className="text-center space-y-6 max-w-lg">
-            <div className="text-7xl animate-bounce-slow">💝</div>
+            <div className="text-6xl md:text-7xl animate-bounce-slow">💝</div>
             
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-rose-300 drop-shadow-2xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-rose-300 drop-shadow-2xl">
               A Final Confession
             </h2>
             
-            <div className="space-y-4 text-xl text-white/90 leading-relaxed">
+            <div className="space-y-4 text-lg md:text-xl text-white/90 leading-relaxed">
               <p>Every time I talk to you, I feel very comfortable and happy ✨</p>
               <p>You have this beautiful way of making simple moments feel special 💖</p>
               <p>I really enjoy having you in my life.</p>
             </div>
             
-            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
-              <p className="text-2xl text-pink-200 font-bold">
+            <div className="p-4 md:p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+              <p className="text-xl md:text-2xl text-pink-200 font-bold">
                 "You've slowly become someone I think about almost every day 🌙💭"
               </p>
-              <p className="text-lg text-gray-300 mt-4">
+              <p className="text-base md:text-lg text-gray-300 mt-3 md:mt-4">
                 - Tumche SHREE🐵💕
               </p>
             </div>
             
             <button
               onClick={() => setShowConfession(false)}
-              className="mt-8 px-8 py-3 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-full font-bold shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-pink-400"
+              className="mt-6 md:mt-8 px-6 md:px-8 py-2 md:py-3 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-full font-bold shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-pink-400 text-base md:text-lg"
             >
               Back to Message
             </button>
@@ -484,81 +483,110 @@ export default function Home() {
         </div>
       )}
       
-      {/* Top Section: The Message - Full width */}
-      <div className="flex-1 flex flex-col justify-center space-y-8 overflow-y-auto px-4 py-2">
-        
-        <div className="relative text-center">
-          <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 rounded-full blur-3xl opacity-20 animate-pulse" />
-          <div className="text-6xl animate-bounce-slow">🐵💖</div>
-        </div>
+      {/* Scrollable Content Area */}
+      <div className="flex-1 overflow-y-auto px-2 md:px-4 py-2 md:py-4">
+        {/* Top Message Section */}
+        <div className="space-y-6 md:space-y-8">
+          {/* Emoji Header */}
+          <div className="relative text-center">
+            <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 rounded-full blur-3xl opacity-20 animate-pulse" />
+            <div className="text-5xl md:text-6xl animate-bounce-slow">🐵💖</div>
+          </div>
 
-        <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-pink-300 drop-shadow-lg text-center leading-tight px-2">
-          A Few Things This Monkey Likes About You🙂
-        </h2>
+          {/* Title */}
+          <h2 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-pink-300 drop-shadow-lg text-center leading-tight px-2">
+            A Few Things This Monkey Likes About You🙂
+          </h2>
 
-        {/* Typewriter Message Area - Full width */}
-        <div className="space-y-8 text-lg leading-relaxed min-h-[300px]">
-          {typewriterLines.map((line, index) => (
-            <div 
-              key={index}
-              className={`p-6 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/10 shadow-xl transition-all duration-500 ${
-                index === currentTypewriterLine ? "scale-[1.02] border-pink-500/30" : ""
-              }`}
-            >
-              <p className="text-xl text-white">
-                {line}
-                {index === currentTypewriterLine && isTyping && (
-                  <span className="ml-1 animate-pulse">|</span>
-                )}
-              </p>
-            </div>
-          ))}
-          
-          {/* Show typing indicator if not all lines are typed */}
-          {isTyping && typewriterLines.length < typewriterMessageLines.length && (
-            <div className="flex items-center gap-2 text-pink-300">
-              <div className="text-xl">🖋️</div>
-              <div className="text-lg animate-pulse">Writing something special...</div>
-            </div>
-          )}
-          
-          {/* All lines typed - show completion message */}
-          {!isTyping && typewriterLines.length === typewriterMessageLines.length && (
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/10 backdrop-blur-md border border-green-500/30 shadow-xl animate-fade-in">
-              <div className="flex items-center gap-3">
-                <div className="text-3xl">✨</div>
-                <p className="text-xl text-white">
-                  That's all from my heart... for now 💗
+          {/* Typewriter Message Area */}
+          <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
+            {typewriterLines.map((line, index) => (
+              <div 
+                key={index}
+                className={`p-4 md:p-6 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/10 shadow-xl transition-all duration-500 ${
+                  index === currentTypewriterLine ? "scale-[1.02] border-pink-500/30" : ""
+                }`}
+              >
+                <p className="text-white leading-relaxed">
+                  {line}
+                  {index === currentTypewriterLine && isTyping && (
+                    <span className="ml-1 animate-pulse">|</span>
+                  )}
+                </p>
+              </div>
+            ))}
+            
+            {/* Show typing indicator */}
+            {isTyping && typewriterLines.length < typewriterMessageLines.length && (
+              <div className="flex items-center gap-2 text-pink-300 p-4">
+                <div className="text-lg md:text-xl">🖋️</div>
+                <div className="text-base md:text-lg animate-pulse">Writing something special...</div>
+              </div>
+            )}
+            
+            {/* All lines typed - show completion message */}
+            {!isTyping && typewriterLines.length === typewriterMessageLines.length && (
+              <div className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/10 backdrop-blur-md border border-green-500/30 shadow-xl animate-fade-in mt-2">
+                <div className="flex items-center gap-3">
+                  <div className="text-2xl md:text-3xl">✨</div>
+                  <p className="text-base md:text-xl text-white">
+                    That's all from my heart... for now 💗
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Final Message Box */}
+          <div className="space-y-4 md:space-y-6 animate-slide-up mt-4 md:mt-6">
+            <div className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-rose-500/20 backdrop-blur-md border border-white/10 shadow-xl">
+              <div className="space-y-3 md:space-y-4 text-base md:text-lg text-white leading-relaxed">
+                <p>
+                  You have a very gentle way of making people feel comfortable,
+                  and I'm really glad I got to know you 💗
+                </p>
+                <p>
+                  Thank you for being you, and for letting me be a part of your
+                  world 🐒💕
                 </p>
               </div>
             </div>
-          )}
+
+            {/* Signature */}
+            <div className="text-center pt-2">
+              <p className="text-xl md:text-2xl font-bold bg-gradient-to-r from-pink-300 to-rose-300 bg-clip-text text-transparent animate-pulse drop-shadow-lg">
+                With a small smile,
+                <br />
+                Your Shree 💕
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Bottom Section: Kisses and Buttons - Fixed */}
-      <div className="mt-auto pt-6 space-y-6 pb-4 w-full px-2">
+      {/* Fixed Bottom Section */}
+      <div className="mt-auto space-y-6 pt-4 pb-2 w-full px-2 md:px-4 border-t border-white/10 bg-black/50 backdrop-blur-sm">
         
         {/* Virtual Kisses Section */}
         <div className="text-center">
-          <p className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-rose-300 drop-shadow-lg mb-4">
+          <p className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-rose-300 drop-shadow-lg mb-3 md:mb-4">
             💋 SEND ME VIRTUAL KISSES! 💋
           </p>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
             <button
               onClick={handleKissClick}
-              className="text-6xl animate-bounce hover:scale-125 transition-transform duration-200 hover:text-rose-500"
+              className="text-5xl md:text-6xl animate-bounce hover:scale-125 transition-transform duration-200 hover:text-rose-500"
             >
               💋
             </button>
-            <div className="text-left">
-              <p className="text-lg text-gray-300">
+            <div className="text-center md:text-left">
+              <p className="text-lg md:text-xl text-gray-300">
                 Kisses collected:{" "}
-                <span className="text-2xl font-bold text-pink-300">
+                <span className="text-xl md:text-2xl font-bold text-pink-300">
                   {kissCount}
                 </span>
               </p>
-              <p className="text-sm text-pink-200">
+              <p className="text-sm md:text-base text-pink-200">
                 {kissCount >= 20 ? "💝 Okay… confession unlocked 💝" : 
                  kissCount >= 15 ? "😄 Are you trying to make me fall for you?" : 
                  kissCount >= 10 ? "💗 You're making this monkey blush" : 
@@ -570,9 +598,9 @@ export default function Home() {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex gap-4 justify-center px-4">
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-2">
           <button
-            className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-full font-semibold shadow-lg hover:scale-105 transition-all duration-300 border border-white/20 backdrop-blur-sm"
+            className="px-5 md:px-6 py-2 md:py-3 bg-white/10 hover:bg-white/20 text-white rounded-full font-semibold shadow-lg hover:scale-105 transition-all duration-300 border border-white/20 backdrop-blur-sm text-base md:text-lg"
             onClick={(e) => {
               e.stopPropagation();
               setCurrentPage(1);
@@ -581,7 +609,7 @@ export default function Home() {
             ← Go Back
           </button>
           <button
-            className="px-8 py-4 bg-gradient-to-r from-white to-gray-300 text-gray-900 rounded-full font-bold shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-white/50 drop-shadow-lg"
+            className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-white to-gray-300 text-gray-900 rounded-full font-bold shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-white/50 drop-shadow-lg text-base md:text-lg"
             onClick={(e) => {
               e.stopPropagation();
               setShowGallery(true);
@@ -900,14 +928,19 @@ export default function Home() {
           </div>
 
           {/* Card */}
-          <div className="relative w-full max-w-lg h-[720px] cursor-pointer perspective-1000 group">
+          <div className="relative w-full max-w-lg cursor-pointer perspective-1000 group">
             <div
               className={`absolute inset-0 bg-gray-800/20 dark:bg-white/20 rounded-3xl blur-xl transition-all duration-500 ${isOpen ? "scale-105" : "group-hover:scale-105"}`}
             />
 
             <div
-              className={`relative w-full h-full transition-all duration-[1200ms] preserve-3d ${isOpen ? "rotate-y-180" : ""}`}
-              style={{ transformStyle: "preserve-3d" }}
+              className={`relative w-full transition-all duration-[1200ms] preserve-3d ${isOpen ? "rotate-y-180" : ""}`}
+              style={{ 
+                transformStyle: "preserve-3d",
+                height: isOpen ? "85vh" : "500px",
+                maxHeight: isOpen ? "800px" : "500px",
+                minHeight: isOpen ? "600px" : "500px"
+              }}
             >
               {/* Front */}
               <div
@@ -991,7 +1024,7 @@ export default function Home() {
 
               {/* Inside */}
               <div
-                className={`absolute inset-0 rounded-3xl shadow-2xl p-10 flex flex-col items-center justify-center backface-hidden rotate-y-180 border-4 transition-all duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`}
+                className={`absolute inset-0 rounded-3xl shadow-2xl p-6 md:p-10 flex flex-col backface-hidden rotate-y-180 border-4 transition-all duration-500 ${isOpen ? "opacity-100" : "opacity-0"} overflow-hidden`}
                 style={{
                   background:
                     currentPage === 1
@@ -1028,14 +1061,17 @@ export default function Home() {
                   </div>
                 ))}
 
-                <div className="relative">
+                <div className="relative text-center mb-6">
                   <div className="absolute -inset-4 bg-pink-500/10 rounded-full blur-xl opacity-30 animate-ping-slow" />
-                  <div className="text-6xl mb-4 animate-heartbeat">
+                  <div className="text-6xl animate-heartbeat">
                     {currentPage === 1 ? "🐼🐒" : "💋🌟"}
                   </div>
                 </div>
 
-                {currentPage === 1 ? renderPage1() : renderPage2()}
+                {/* Main Content - Now properly scrollable */}
+                <div className="flex-1 overflow-hidden">
+                  {currentPage === 1 ? renderPage1() : renderPage2()}
+                </div>
               </div>
             </div>
           </div>
@@ -1356,6 +1392,35 @@ export default function Home() {
         @keyframes typewriter-cursor {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
+        }
+
+        /* Add smooth scrolling for mobile */
+        @media (max-width: 768px) {
+          .overflow-y-auto {
+            -webkit-overflow-scrolling: touch;
+          }
+          
+          /* Make sure buttons are touch-friendly */
+          button {
+            min-height: 44px;
+            min-width: 44px;
+          }
+          
+          /* Adjust card height for mobile */
+          .h-\[720px\] {
+            height: 90vh;
+            max-height: 700px;
+            min-height: 600px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          /* Adjust card size for very small screens */
+          .h-\[720px\] {
+            height: 85vh;
+            max-height: 650px;
+            min-height: 550px;
+          }
         }
       `}</style>
     </div>
