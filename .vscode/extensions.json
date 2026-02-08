@@ -1,0 +1,34 @@
+{
+  "recommendations": [
+    // Essential Extensions for Next.js + TypeScript + Tailwind
+
+    // TypeScript & JavaScript Support
+    "dbaeumer.vscode-eslint",           // ESLint - Code linting
+    "esbenp.prettier-vscode",            // Prettier - Code formatting
+    "bradlc.vscode-tailwindcss",         // Tailwind CSS IntelliSense
+    "ms-vscode.vscode-typescript-next",  // TypeScript and JavaScript Language Features
+
+    // Next.js Support
+    "dsznajder.es7-react-js-snippets",   // React/Redux/React-Native snippets
+    "formulahendry.auto-rename-tag",     // Auto rename paired HTML/XML tag
+    "christian-kohler.path-intellisense", // Path autocompletion
+
+    // Theme & UI (Optional but recommended)
+    "pkief.material-icon-theme",        // Material Icon Theme
+    "catppuccin.catppuccin-vsc-icons",   // Catppuccin Icons (alternative)
+    "zhuangtongfa.material-theme",      // One Dark Pro Theme
+
+    // Git & Productivity
+    "eamodio.gitlens",                   // Git supercharged
+    "github.copilot",                    // GitHub Copilot AI (if you have it)
+
+    // Markdown Support
+    "yzhang.markdown-all-in-one",        // Markdown all in one
+
+    // Prisma Support (for database)
+    "prisma.prisma",                     // Prisma ORM support
+  ],
+  "unwantedRecommendations": [
+    "ms-python.python"
+  ]
+}
