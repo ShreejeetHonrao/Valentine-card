@@ -676,7 +676,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Photo Grid - Bigger Photos */}
+          {/* Photo Grid - SMALLER IMAGE BOXES */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full px-4 overflow-y-auto max-h-[60vh] pb-8">
             {galleryPhotos.map((src, i) => (
               <div
@@ -684,20 +684,22 @@ export default function Home() {
                 className="relative group animate-gallery-float"
                 style={{ animationDelay: `${i * 0.2}s` }}
               >
-                {/* Photo Container */}
-                <div className="relative w-full h-80 md:h-96 rounded-3xl overflow-hidden shadow-2xl transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl border-8 border-white/90 backdrop-blur-sm">
+                {/* Photo Container - SMALLER SIZE */}
+                <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl border-6 border-white/90 backdrop-blur-sm">
                   {/* Background Glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-rose-500/20 to-red-500/20 blur-xl group-hover:blur-2xl transition-all duration-500" />
                   
-                  {/* Photo */}
-                  <img
-                    src={src}
-                    alt={`Memory ${i + 1}`}
-                    className="w-full h-full object-cover relative z-10"
-                  />
+                  {/* Photo - SMALLER DISPLAY */}
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <img
+                      src={src}
+                      alt={`Memory ${i + 1}`}
+                      className="max-w-[85%] max-h-[85%] object-contain rounded-lg shadow-lg"
+                    />
+                  </div>
                   
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 flex flex-col justify-end p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 flex flex-col justify-end p-5">
                     <div className="text-white text-center">
                       <p className="text-2xl font-bold mb-2">Memory #{i + 1}</p>
                       <p className="text-sm opacity-90">A moment I'll always cherish 💝</p>
@@ -714,7 +716,7 @@ export default function Home() {
                 </div>
                 
                 {/* Floating Label */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-2 rounded-full shadow-lg border-2 border-white/50 whitespace-nowrap text-sm font-bold opacity-0 group-hover:opacity-100 transition-all duration-500">
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-5 py-2 rounded-full shadow-lg border-2 border-white/50 whitespace-nowrap text-sm font-bold opacity-0 group-hover:opacity-100 transition-all duration-500">
                   Click to view larger
                 </div>
               </div>
@@ -1038,10 +1040,10 @@ export default function Home() {
               >
                 {/* Decorative elements */}
                 <div className="absolute top-4 right-4 text-3xl opacity-20">
-                  🎋
+                  🐼
                 </div>
                 <div className="absolute bottom-4 left-4 text-3xl opacity-20">
-                  🐼
+                  🎋
                 </div>
 
                 {/* Heart burst animation */}
